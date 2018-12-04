@@ -1,0 +1,255 @@
+@import url('https://fonts.googleapis.com/css?family=Work+Sans:400,700');
+
+:root{
+    --green: #76EA82;
+    --bg-green: #F1FDF2;
+
+    --red: #EA7676;
+    --bg-red: #FDF1F1;
+
+    --blue: #8D76EA;
+    --bg-blue: #F1F3FD;
+
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html, body, .app {
+    height: 100vh;
+    font-family: 'Work Sans', sans-serif;
+
+}
+
+.app {
+    display: grid;
+    grid-template: "display display" 1fr
+                   "raw  done" 6fr  
+                   / 1fr 1fr;
+
+}
+
+
+.display {
+    grid-area: display;
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    background: #fff;
+    box-shadow: 0 2px 4px 4px rgba(0,0,0,0.1);
+}
+
+.display__message {
+    margin-left: 30px;
+    font-size: 48px;
+}
+
+.display__timer {
+    display: inline;
+    font-size: 210px;
+}
+
+/* .display__task-title {
+    font-size: 48px;
+} */
+
+.raw-tasks {
+    grid-area: raw;
+}
+
+.done-tasks {
+    grid-area: done;
+}
+
+.hidden {
+    display: none;
+}
+
+.add-task {
+    padding: 25px 30px;
+    margin-bottom: 30px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
+    border-radius: 30px;
+}
+
+.add-task label {
+    margin-left: 15px;
+}
+
+.add-task__input {
+    outline: none;
+    display: block;
+    width: 100%;
+    background-color: #F0F0F0;
+    border: none;
+    border-radius: 10px;
+
+    margin: 0 0 20px;
+    padding: 10px 15px;
+}
+
+.add-task__add-btn {
+
+    width: 140px;
+    height: 40px;
+    background: var(--green);
+    color: #FFFFFF;
+    border-radius: 10px;
+
+}
+
+.container {
+    padding: 30px 30px;
+}
+
+.row {
+    display: flex;
+}
+
+.card {
+    margin: 8% 0;
+}
+
+.task-list {
+    list-style: none;
+}
+
+
+.task {
+    display: flex;
+    border-radius: 30px;
+    min-height: 130px;
+    margin-bottom: 30px;
+}
+
+.task__wrapper {
+    display: flex;
+    width: 100%;
+    margin: 15px 0 15px 30px;
+}
+
+.task__text {  
+    font-size: 20px;
+}
+
+.task__description {
+    margin-left: 20px;
+    margin-top: 5px;
+    font-size: 16px;
+}
+
+.task__timer {
+    margin-top: 15px;
+}
+
+.task__btn-wrapper {
+    display: flex;
+    width: 85px;
+}
+
+button {
+    border: none;
+    margin: 0;
+    padding: 0;
+    width: auto;
+    overflow: visible;
+
+    background: transparent;
+
+    /* inherit font & color from ancestor */
+    color: inherit;
+    font: inherit;
+
+    /* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
+    line-height: normal;
+
+    /* Corrects font smoothing for webkit */
+    -webkit-font-smoothing: inherit;
+    -moz-osx-font-smoothing: inherit;
+
+    /* Corrects inability to style clickable `input` types in iOS */
+    -webkit-appearance: none;
+
+}
+
+.task__run-btn,
+.task__pause-btn {
+    width: 100%;
+    background: #000;
+    border: none;
+    font-size: 36px;
+    color: #fff;
+    border-top-left-radius: 30px; 
+    border-bottom-left-radius: 30px; 
+
+}
+
+.task__wrapper .task__btn-wrapper{
+    flex-direction: column;
+    margin-left: auto;
+    font-size: 22px;
+}
+
+.task__wrapper .task__btn-wrapper button{
+    margin-bottom: 11px;
+
+}
+
+
+/* Running task  */
+
+.running .task__run-btn, 
+.running .task__pause-btn {
+    background: var(--green);
+}
+
+.running.task {
+    background: var(--bg-green);
+}
+
+.running .task__edit-btn,
+.running .task__remove-btn {
+    color: var(--green);
+}
+
+/*Waiting task */
+
+.waiting .task__run-btn,
+.running .task__pause-btn {
+    background: var(--red);
+}
+
+.waiting.task {
+    background: var(--bg-red);
+}
+
+.waiting .task__edit-btn,
+.waiting .task__remove-btn {
+    color: var(--red);
+}
+
+/* Done task */
+
+.done .task__run-btn,
+.done .task__pause-btn {
+    background: var(--blue);
+}
+
+.done.task {
+    background: var(--bg-blue);
+}
+
+.done .task__edit-btn,
+.done .task__remove-btn {
+    color: var(--blue);
+}
+
+
+
